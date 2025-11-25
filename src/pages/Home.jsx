@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import { Axios } from "axios";
+import axios from "axios";
 
 function Home() {
   useEffect(() => {
-    Axios.get(`https//jsonplaceholder.typicode.com/users`);
+    axios.get(`https://jsonplaceholder.typicode.com/users`)
+      .then(response => console.log(response.data))
+      .catch(error => console.error(error));
   }, []);
   return <h1>Home</h1>;
 }
