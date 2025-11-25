@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import User from "../components/User.jsx";
 import { Link } from "react-router-dom";
-
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -14,7 +13,6 @@ function Users() {
       `https://jsonplaceholder.typicode.com/users`
     );
     console.log(data);
-
     setUsers(data);
   }
   useEffect(() => {
@@ -22,18 +20,19 @@ function Users() {
       fetchUsers();
     }, 500);
   }, []);
-
+  const pixels = "2px";
   return (
     <div>
       {users.map((user) => (
-        <Link to={`/users/${user.id}`} key={user.id}>
-            <User  id={user.id} name={user.name} email={user.email} username={user.username}/>
+        <Link to={`/user/${user.id}`} key={user.id}>
+          <User
+            id={user.id}
+            name={user.name}
+            email={user.email}
+            username={user.username}
+          />
         </Link>
-
       ))}
-      <Routes>
-        <Route path="/user/:id" element={<User />} />
-      </Routes>
     </div>
   );
 }
