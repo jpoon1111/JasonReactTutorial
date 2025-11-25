@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import Users from "./pages/Users.jsx";
 
 
+
 function App() {
   return (
     <Router>
@@ -15,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/users/:username" element={<Users />} />
+        <Route path="/users/:id" element={<Users />} />
       </Routes>
     </Router>
   );
