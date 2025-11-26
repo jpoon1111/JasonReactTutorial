@@ -14,16 +14,26 @@ function Home() {
   useEffect(() => {
     setTimeout(() => {
       fetchUsers();
-    }, 500);
+    }, 2000);
   }, []);
   const pixels = "2px";
-  return (
-    <div>
-      {users.map((user) => (
-         <Link to={`/user/${user.id}`} key={user.id}>
+
+  function renderUsers(){
+    return users.map((user) => (
+         <Link to={`/users/${user.id}`} key={user.id}>
           <User  id={user.id} name={user.name} email={user.email} username={user.username}/>
         </Link>
-      ))}
+      ))
+  }
+
+  function renderLoading(){
+    return <h2>Loading...</h2>
+  }
+
+  return (
+    <div>
+      {users.length ? renderUsers() : renderLoading()
+    }
     </div>
   );
 }

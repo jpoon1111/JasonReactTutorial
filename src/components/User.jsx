@@ -2,6 +2,9 @@ import { useParams } from "react-router-dom"
 
 function User() {
   const { id } = useParams();
+  console.log(id);
+
+
 
   return (
   <div  style={{ border: `2px solid black` }}>
@@ -10,9 +13,9 @@ function User() {
     <h2>{id}</h2>
     <h2>{id}</h2>
     <h2>{id}</h2>
-    {/* <div>{name}</div>
-    <div>{email}</div>
-    <div>{username}</div> */}
+    {/* <div>{id.name}</div>
+    <div>{id.email}</div>
+    <div>{id.username}</div> */}
   </div>
   )
 }
